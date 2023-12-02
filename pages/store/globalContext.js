@@ -9,23 +9,23 @@ import { createContext, useState, useEffect } from 'react'
 const GlobalContext = createContext()
 
 export function GlobalContextProvider(props) {
-    const [globals, setGlobals] = useState({ aString: 'init val', count: 0, hideHamMenu: true, meetings: [], dataLoaded: false })
+    const [globals, setGlobals] = useState({ aString: 'init val', count: 0, hideHamMenu: true, books: [], dataLoaded: false })
 
     useEffect(() => {
-        getAllMeetings()
+        getAllBooks()
     }, []);
 
-    async function getAllMeetings() {
+    async function getAllBooks() {
         const response = await fetch('/api/get-books', {
             method: 'POST',
-            body: JSON.stringify({ meetups: 'all' }),
+            body: JSON.stringify({ books: 'all' }),
             headers: {
                 'Content-Type': 'application/json'
             }
         });
         let data = await response.json();
         console.log(data);
-        setGlobals((previousGlobals) => { const newGlobals = JSON.parse(JSON.stringify(previousGlobals)); newGlobals.meetings = data.meetings; newGlobals.dataLoaded = true; console.log(newGlobals); return newGlobals })
+        setGlobals((previousGlobals) => { const newGlobals = JSON.parse(JSON.stringify(previousGlobals)); newGlobals.books = data.books; newGlobals.dataLoaded = true; console.log(newGlobals); return newGlobals })
         
     }
 
