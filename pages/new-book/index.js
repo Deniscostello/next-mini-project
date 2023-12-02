@@ -8,12 +8,12 @@ function AddBookPage() {
     const router = useRouter()
     const globalCtx = useContext(GlobalContext)
 
-    async function addMeetupHandler(enteredMeetupData)  {
-        await globalCtx.updateGlobals({cmd: 'addMeeting', newVal: enteredMeetupData})
+    async function addMeetupHandler(enteredBookData)  {
+        await globalCtx.updateGlobals({cmd: 'addBook', newVal: enteredBookData})
         router.push('/');
     }
 
-    return <AddBookForm onAddMeetup={addMeetupHandler} />
+    return <AddBookForm onAddBook={addMeetupHandler} />
 }
 
 export default AddBookPage

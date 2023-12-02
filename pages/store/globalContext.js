@@ -39,7 +39,7 @@ export function GlobalContextProvider(props) {
                 newGlobals.hideHamMenu = command.newVal; return newGlobals
             })
         }
-        if (command.cmd == 'addMeeting') {
+        if (command.cmd == 'addBook') {
             const response = await fetch('/api/new-book', {
                 method: 'POST',
                 body: JSON.stringify(command.newVal),
@@ -50,7 +50,7 @@ export function GlobalContextProvider(props) {
             const data = await response.json(); // Should check here that it worked OK
             setGlobals((previousGlobals) => {
                 const newGlobals = JSON.parse(JSON.stringify(previousGlobals))
-                newGlobals.meetings.push(command.newVal); return newGlobals
+                newGlobals.books.push(command.newVal); return newGlobals
             })
         }
     }

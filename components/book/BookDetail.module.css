@@ -1,7 +1,28 @@
 .detail {
     text-align: center;
+    
+}
+.bookDetails {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    height: 800px;
+    width: 800px
 }
 
 .detail img {
     width: 100%;
+}
+
+.imageDiv {
+    width: 50%;
+    padding-top: 4em;
+}
+
+.textDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+ width: 50%;
+ padding: 1em;
 }

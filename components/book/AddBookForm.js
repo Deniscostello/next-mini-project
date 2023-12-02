@@ -1,56 +1,65 @@
 import { useRef } from 'react';
-
-import Card from './Card';
+import Card from '../Card';
 import classes from './AddBookForm.module.css';
 
 function AddBookForm(props) {
+  const bookIdInputRef = useRef();
   const titleInputRef = useRef();
-  const imageInputRef = useRef();
-  const addressInputRef = useRef();
-  const descriptionInputRef = useRef();
+  const authorInputRef = useRef();
+  const posterInputRef = useRef();
+  const releaseDateInputRef = useRef();
+  const reviewLinkInputRef = useRef();
+  const genresInputRef = useRef(); 
+  const backdropsInputRef = useRef();
 
   function submitHandler(event) {
     event.preventDefault();
 
+    const enteredBookId = bookIdInputRef.current.value;
     const enteredTitle = titleInputRef.current.value;
-    const enteredImage = imageInputRef.current.value;
-    const enteredAddress = addressInputRef.current.value;
-    const enteredDescription = descriptionInputRef.current.value;
+    const enteredAuthor = authorInputRef.current.value;
+    const enteredPoster = posterInputRef.current.value;
+    const enteredReleaseDate = releaseDateInputRef.current.value;
+    const enteredReviewLink = reviewLinkInputRef.current.value;
 
-    const meetupData = {
-      meetingId: enteredTitle,
+    const bookData = {
+      bookId: enteredBookId,
       title: enteredTitle,
-      image: enteredImage,
-      address: enteredAddress,
-      description: enteredDescription,
+      author: enteredAuthor,
+      poster: enteredPoster,
+      releaseDate: enteredReleaseDate,
+      reviewLink: enteredReviewLink,
     };
 
-    props.onAddMeetup(meetupData);
+    props.onAddBook(bookData);
   }
 
   return (
     <Card>
       <form className={classes.form} onSubmit={submitHandler}>
+      <div className={classes.control}>
+          <label htmlFor='bookId'>Book Id</label>
+          <input type='text' required id='bookId' ref={bookIdInputRef} />
+        </div>
         <div className={classes.control}>
-          <label htmlFor='title'>Meetup Title (must be unique: it's the meeting ID)</label>
+          <label htmlFor='title'>Book Title</label>
           <input type='text' required id='title' ref={titleInputRef} />
         </div>
         <div className={classes.control}>
-          <label htmlFor='image'>Meetup Image</label>
-          <input type='url' required id='image' ref={imageInputRef} />
+          <label htmlFor='author'>Book Author </label>
+          <input type='text' required id='author' ref={authorInputRef} />
         </div>
         <div className={classes.control}>
-          <label htmlFor='address'>Address</label>
-          <input type='text' required id='address' ref={addressInputRef} />
+          <label htmlFor='poster'>Book Poster</label>
+          <input type='url' required id='poster' ref={posterInputRef} />
         </div>
         <div className={classes.control}>
-          <label htmlFor='description'>Description</label>
-          <textarea
-            id='description'
-            required
-            rows='5'
-            ref={descriptionInputRef}
-          ></textarea>
+          <label htmlFor='releaseDate'>Release Date</label>
+          <input type='text' required id='releaseDate' ref={releaseDateInputRef} />
+        </div>
+        <div className={classes.control}>
+          <label htmlFor='reviewLink'>Book Review Link</label>
+          <input type='url' required id='reviewLink' ref={reviewLinkInputRef} />
         </div>
         <div className={classes.actions}>
           <button>Add Book</button>
