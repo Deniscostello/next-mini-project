@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Open+Sans:wght@400;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Open+Sans:wght@400;700&display=swap');
 
 * {
   box-sizing: border-box;
@@ -16,4 +16,23 @@ h4,
 h5,
 h6 {
   font-family: 'Lato', sans-serif;
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+*{
+  box-sizing: border-box;
+  font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+}
+body{
+  padding:0;
+  margin:0;
+}
+.App{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: black;
+  color:white;
+  margin-top:10px;
 }
