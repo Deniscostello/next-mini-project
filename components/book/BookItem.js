@@ -12,20 +12,18 @@ function BookItem(props) {
   }
 
   return (
-    <li className={classes.item}>
-      <Card>
-        <div className={classes.image}>
+    <div>
+ <div className={classes.image}>
           <img src={props.poster} alt={props.title} />
         </div>
         <div className={classes.content}>
-          <h3>{props.title}</h3>
-          <address>{props.author}</address>
+        <h3>{props.title}</h3>
         </div>
         <div className={classes.actions}>
           <button onClick={showDetailsHandler}>Show Book</button>
+        </div> 
         </div>
-      </Card>
-    </li>
+
   );
 }
 
