@@ -1,10 +1,14 @@
 import BookItem from './BookItem';
 import classes from './BookList.module.css';
+import Carousel from 'react-material-ui-carousel'
+import { Paper } from '@mui/material'
 
 function BookList(props) {
   return (
-    <ul className={classes.list}>
+    <div className={classes.carouselContainer} > 
+    <Carousel className={classes.carouselStyle} >
       {props.books.map((book) => (
+        <Paper key ={book.bookId}>
         <BookItem
           key={book.bookId}
           bookId={book.bookId}
@@ -14,8 +18,11 @@ function BookList(props) {
           releaseDate={book.releaseDate}
           reviewLink={book.reviewLink}
         />
+        </Paper>
+
       ))}
-    </ul>
+    </Carousel>
+    </div>
   );
 }
 
