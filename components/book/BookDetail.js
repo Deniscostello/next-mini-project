@@ -1,8 +1,14 @@
 import classes from './BookDetail.module.css'
+import AddReview from '../AddReview'
 
 function BookDetail(props) {
-    console.log(props.releaseDate)
+
+    function addReviewHandler(enteredReviewData) {
+        console.log(enteredReviewData)
+
+    }
     return (
+        <>
         <section className={classes.detail}>
             <div className={classes.bookDetails}>
                 <div className={classes.imageDiv}>
@@ -16,6 +22,8 @@ function BookDetail(props) {
                 </div>
             </div>
         </section>
+        <AddReview onAddReview={addReviewHandler} />
+        </>
     )
 }
 
