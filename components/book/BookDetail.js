@@ -1,7 +1,6 @@
 import classes from './BookDetail.module.css'
 
 function BookDetail(props) {
-    console.log(props.releaseDate)
     return (
         <section className={classes.detail}>
             <div className={classes.bookDetails}>
