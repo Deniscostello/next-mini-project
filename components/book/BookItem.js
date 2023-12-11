@@ -1,6 +1,7 @@
 import Card from '../Card';
 import classes from './BookItem.module.css';
 import { useRouter } from 'next/router';
+import {CiStar} from "react-icons/ci"
 
 function BookItem(props) {
   const router = useRouter();
@@ -21,6 +22,9 @@ function BookItem(props) {
         </div>
         <div className={classes.actions}>
           <button onClick={showDetailsHandler}>Show Book</button>
+          <div>
+          <CiStar />
+          </div>
         </div> 
         </div>
 
