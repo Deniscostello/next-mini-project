@@ -54,10 +54,15 @@ export function GlobalContextProvider(props) {
             })
         }
         if (command.cmd == 'addToFavMenu') {
-            console.log(command.newVal)
             setGlobals((previousGlobals) => {
                 const newGlobals = JSON.parse(JSON.stringify(previousGlobals))
                 newGlobals.favourites.push(command.newVal); return newGlobals
+            })
+        }
+        if (command.cmd == 'removeFavMenu') {
+            setGlobals((previousGlobals) => {
+                const newGlobals = JSON.parse(JSON.stringify(previousGlobals))
+                newGlobals.favourites.pop(command.newVal); return newGlobals
             })
         }
     }

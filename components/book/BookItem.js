@@ -14,7 +14,7 @@ function BookItem(props) {
       if (favText == 'Add to favourites') {
         globalCtx.updateGlobals({ cmd: 'addToFavMenu', newVal: props })
       } else {
-        globalCtx.updateGlobals({ cmd: 'removeFavMenu', newVal: null })
+        globalCtx.updateGlobals({ cmd: 'removeFavMenu', newVal: props })
       }
   
   }; 
