@@ -55,6 +55,7 @@
     text-align: center;
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
   }
   
   .actions button {
@@ -70,4 +71,8 @@
   .actions button:hover,
   .actions button:active {
     background-color: #ffe2ed;
+  }
+
+  .favDiv  {
+    height: 10px
   }
