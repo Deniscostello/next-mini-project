@@ -25,12 +25,14 @@ function BookItem(props) {
 
   return (
     <div>
-      <div className={classes.image}>
-        <img src={props.poster} alt={props.title} />
-      </div>
-      <div className={classes.content}>
-        <h3>{props.title}</h3>
-      </div>
+ <div className={classes.image}>
+ <div style={{ fontSize: '3rem', fontWeight: 'bold', color: '#800000', textAlign: 'center' }}>
+  {props.title}
+</div>
+          <img src={props.poster} alt={props.title} />
+        </div>
+        <div className={classes.content}>
+        </div>
       <div className={classes.actions}>
         <button onClick={showDetailsHandler}>Show Book</button>
         <button onClick={favHandleClick}> {favText}</button>

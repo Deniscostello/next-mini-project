@@ -36,6 +36,7 @@ function AddBookForm(props) {
 
   return (
     <Card>
+      <div className={classes.container}>
       <form className={classes.form} onSubmit={submitHandler}>
       <div className={classes.control}>
           <label htmlFor='bookId'>Book Id</label>
@@ -65,6 +66,24 @@ function AddBookForm(props) {
           <button>Add Book</button>
         </div>
       </form>
+      <div className={classes.imageContainer}>
+            {/* Your image boxes go here */}
+            {/* Example: */}
+            <div className={classes.imageBox}>
+              <img src="books.jpg" alt="Image 1" />
+            </div>
+            <div className={classes.imageBox}>
+              <img src="books2.jpg" alt="Image 2" />
+            </div>
+            <div className={classes.imageBox}>
+              <img src="books3.jpg" alt="Image 3" />
+            </div>
+            <div className={classes.imageBox}>
+              <img src="books4.jpg" alt="Image 4" />
+            </div>
+            <div className={classes.actions}></div>
+          </div>
+    </div>
     </Card>
   );
 }
