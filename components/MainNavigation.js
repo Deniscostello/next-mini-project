@@ -15,7 +15,7 @@ function MainNavigation() {
   }
 
   const contents = []
-  globalCtx.theGlobalObject.books.forEach(element => {
+  globalCtx.theGlobalObject.favourites.forEach(element => {
     contents.push({title: element.title, webAddress: '/' + element.bookId})    
   });
 

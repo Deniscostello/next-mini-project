@@ -9,7 +9,7 @@ import { createContext, useState, useEffect } from 'react'
 const GlobalContext = createContext()
 
 export function GlobalContextProvider(props) {
-    const [globals, setGlobals] = useState({ aString: 'init val', count: 0, hideHamMenu: true, books: [], dataLoaded: false })
+    const [globals, setGlobals] = useState({ aString: 'init val', count: 0, hideHamMenu: true, books: [], favourites:[], dataLoaded: false })
 
     useEffect(() => {
         getAllBooks()
@@ -25,7 +25,7 @@ export function GlobalContextProvider(props) {
         });
         let data = await response.json();
         console.log(data);
-        setGlobals((previousGlobals) => { const newGlobals = JSON.parse(JSON.stringify(previousGlobals)); newGlobals.books = data.books; newGlobals.dataLoaded = true; console.log(newGlobals); return newGlobals })
+        setGlobals((previousGlobals) => { const newGlobals = JSON.parse(JSON.stringify(previousGlobals)); newGlobals.books = data.books; newGlobals.dataLoaded = true; return newGlobals })
         
     }
 
@@ -51,6 +51,18 @@ export function GlobalContextProvider(props) {
             setGlobals((previousGlobals) => {
                 const newGlobals = JSON.parse(JSON.stringify(previousGlobals))
                 newGlobals.books.push(command.newVal); return newGlobals
+            })
+        }
+        if (command.cmd == 'addToFavMenu') {
+            setGlobals((previousGlobals) => {
+                const newGlobals = JSON.parse(JSON.stringify(previousGlobals))
+                newGlobals.favourites.push(command.newVal); return newGlobals
+            })
+        }
+        if (command.cmd == 'removeFavMenu') {
+            setGlobals((previousGlobals) => {
+                const newGlobals = JSON.parse(JSON.stringify(previousGlobals))
+                newGlobals.favourites.pop(command.newVal); return newGlobals
             })
         }
     }
