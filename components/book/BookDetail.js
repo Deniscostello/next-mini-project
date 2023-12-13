@@ -41,15 +41,19 @@ function BookDetail(props) {
         <div className={classes.textDiv}>
           <h2>{props.author}</h2>
           <h2 style={{ marginBottom: '1em' }}>{props.releaseDate}</h2>
+          <div className={classes.buttonDiv}>
           <a href={props.reviewLink} className={classes.reviewLink}>
             <div style={{ border: '2px solid #ffcccc', backgroundColor: '#ffe6e6', padding: '1em', borderRadius: '8px', display: 'inline-block', paddingTop: '0.5em' }}>
                 Review on Youtube!
             </div>
             </a>
-            <button onClick={favHandleClick}> {favText}</button>
-            {favText}
+            <button  style={{ border: '2px solid #ffcccc', backgroundColor: '#ffe6e6', padding: '1em', borderRadius: '8px', display: 'inline-block', paddingTop: '0.5em',  width: '250px', height: '85px'}} onClick={favHandleClick}> {favText}</button>
+            <div className={classes.reviewLink}>
+            <AddReview onAddReview={addReviewHandler} />
+            </div>
+            </div>
+            {revText}
         </div>
-        <AddReview onAddReview={addReviewHandler} />
       </div>
     </section>
   );

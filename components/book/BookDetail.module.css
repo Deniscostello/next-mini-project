@@ -60,4 +60,11 @@
   .textDiv a:hover {
     text-decoration: underline;
   }
+
+  .buttonDiv {
+    display: flex;
+    flex-direction: row;
+  }
+  
+
   
