@@ -31,6 +31,9 @@ function MainNavigation() {
           <li>
             <Link href='/new-book'>Add New Book</Link>
           </li>
+          <li>
+          <Link href='/about'>About</Link>
+          </li>
         </ul>
       </nav>
     </header>
