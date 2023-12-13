@@ -2,14 +2,23 @@ import classes from './BookDetail.module.css';
 import { useRouter } from 'next/router';
 import { useContext, useState } from 'react'
 import GlobalContext from '../../pages/store/globalContext'
+import AddReview from '../AddReview';
 
 function BookDetail(props) {
+
+    const [revText, setReviewText] = useState( <h2></h2> )
 
     const router = useRouter();
     const [favText, setFavText] = useState('Add to favourites')
     const globalCtx = useContext(GlobalContext)
-    const [revText, setRevText] = useState(<h2></h2>)
     
+
+    function addReviewHandler(enteredReviewData) {
+        console.log(enteredReviewData.reviewText)
+        setReviewText(revText === <h2></h2> ? <h2></h2> : <h2>{enteredReviewData.reviewText}</h2>); 
+    }
+
+
     const favHandleClick = () => { 
       setFavText(favText === 'Add to favourites' ? 'Remove from favourites' : 'Add to favourites'); 
         if (favText == 'Add to favourites') {
@@ -38,7 +47,9 @@ function BookDetail(props) {
             </div>
             </a>
             <button onClick={favHandleClick}> {favText}</button>
+            {favText}
         </div>
+        <AddReview onAddReview={addReviewHandler} />
       </div>
     </section>
   );
