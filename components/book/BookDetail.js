@@ -5,13 +5,11 @@ import GlobalContext from '@/pages/store/globalContext';
 import { useState, useContext } from 'react';
 
 function BookDetail(props) {
-    const router = useRouter();
-    const [favText, setFavText] = useState( <h2></h2> )
-    const globalCtx = useContext(GlobalContext)
+    const [revText, setReviewText] = useState( <h2></h2> )
 
     function addReviewHandler(enteredReviewData) {
         console.log(enteredReviewData.reviewText)
-        setFavText(favText === <h2></h2> ? <h2></h2> : <h2>{enteredReviewData.reviewText}</h2>); 
+        setReviewText(revText === <h2></h2> ? <h2></h2> : <h2>{enteredReviewData.reviewText}</h2>); 
 
     }
     return (
@@ -27,7 +25,7 @@ function BookDetail(props) {
                     <h2>{props.releaseDate}</h2>
                     <a href={props.reviewLink}>Review on Youtube!</a>
                     <AddReview onAddReview={addReviewHandler} />
-                    {favText}
+                    {revText}
                 </div>
             </div>
         </section>
