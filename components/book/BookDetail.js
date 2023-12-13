@@ -1,6 +1,25 @@
 import classes from './BookDetail.module.css';
+import { useRouter } from 'next/router';
+import { useContext, useState } from 'react'
+import GlobalContext from '../../pages/store/globalContext'
 
 function BookDetail(props) {
+
+    const router = useRouter();
+    const [favText, setFavText] = useState('Add to favourites')
+    const globalCtx = useContext(GlobalContext)
+    const [revText, setRevText] = useState(<h2></h2>)
+    
+    const favHandleClick = () => { 
+      setFavText(favText === 'Add to favourites' ? 'Remove from favourites' : 'Add to favourites'); 
+        if (favText == 'Add to favourites') {
+          globalCtx.updateGlobals({ cmd: 'addToFavMenu', newVal: props })
+        } else {
+          globalCtx.updateGlobals({ cmd: 'removeFavMenu', newVal: props })
+        }
+    }; 
+
+
   return (
     <section className={classes.detail}>
       <div className={classes.bookDetails}>
@@ -18,6 +37,7 @@ function BookDetail(props) {
                 Review on Youtube!
             </div>
             </a>
+            <button onClick={favHandleClick}> {favText}</button>
         </div>
       </div>
     </section>
