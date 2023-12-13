@@ -10,7 +10,8 @@ function BookDetail(props) {
     const globalCtx = useContext(GlobalContext)
 
     function addReviewHandler(enteredReviewData) {
-        setFavText(favText === <h2></h2> ? <h2>enteredReviewData</h2> : <h2></h2>); 
+        console.log(enteredReviewData.reviewText)
+        setFavText(favText === <h2></h2> ? <h2></h2> : <h2>{enteredReviewData.reviewText}</h2>); 
 
     }
     return (
